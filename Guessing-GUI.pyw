@@ -23,6 +23,8 @@ def create_secret():
     instruction3 = "Wähle eine Ganzzahl zwischen {} und {}:".format(lower_bound, upper_bound)
     return(secret_number, instruction1)
    
+def enter_return(event):
+    check_Secret()
     
 def check_Secret():
     global count
@@ -113,6 +115,7 @@ instruction3_label = ttk.Label(guess_entry_frame, textvariable=instruction2_valu
 instruction3_label.pack(side="left", padx=5, pady=3)
 
 Guess_entry = ttk.Entry(guess_entry_frame, textvariable=guess_value, font=("Arial", 12))
+Guess_entry.bind('<Return>', enter_return)
 Guess_entry.pack(side="right", padx=5, pady=3)
 guess_entry_frame.pack(fill="x", padx=5, pady=3)
 
